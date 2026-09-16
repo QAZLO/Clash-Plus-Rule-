@@ -1,0 +1,40 @@
+payload:
+  # 抖音核心域名
+  - douyin.com
+  - douyinliving.com
+  - douyinstatic.com
+  - douyinpic.com
+  - douyincdn.com
+  - douyinvod.com
+  - douyincloud.net
+  - douyinec.com
+  - iesdouyin.com
+  - iesdouyin.net
+  - idouyinliving.com
+  - idouyinstatic.com
+  - open-douyin.com
+
+  # 字节跳动
+  - bytedance.com
+  - bytedance.net
+  - bytedanceapi.com
+  - bytedancevod.com
+  - bytegecko.com
+  - byteimg.com
+
+  # 今日头条
+  - toutiao.com
+  - toutiaocdn.com
+  - toutiaoimg.com
+  - toutiaostatic.com
+  - toutiaovod.com
+  - toutiaocloud.com
+
+  # SDK
+  - snssdk.com
+  - ctobsnssdk.com
+  - tobsnssdk.com
+
+  # 其他字节系
+  - amemv.com
+  - ixigua.com
