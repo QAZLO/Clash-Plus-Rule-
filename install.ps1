@@ -43,6 +43,13 @@ if ($text -match 'cn-ipcidr') {
 $providers = @"
 # >>> echo-core start
 rule-providers:
+  douyin-direct:
+    type: http
+    behavior: domain
+    format: yaml
+    url: "$RepoRaw/douyin-direct.yaml"
+    path: ./ruleset/douyin-direct.yaml
+    interval: 86400
   cn-domain:
     type: http
     behavior: domain
@@ -64,6 +71,13 @@ if ($text -match '(?m)^rule-providers:') {
     Write-Host '[提示] 已存在 rule-providers，把新规则集并入其中。' -ForegroundColor Yellow
     $merge = @"
 rule-providers:
+  douyin-direct:
+    type: http
+    behavior: domain
+    format: yaml
+    url: "$RepoRaw/douyin-direct.yaml"
+    path: ./ruleset/douyin-direct.yaml
+    interval: 86400
   cn-domain:
     type: http
     behavior: domain
@@ -83,10 +97,11 @@ rule-providers:
 } else {
     $text = $providers + "`r`n" + $text
 }
-Write-Host '[3/4] 已写入 rule-providers（域名 + IP 段）' -ForegroundColor Green
+Write-Host '[3/4] 已写入 rule-providers（抖音专用 + 域名 + IP 段）' -ForegroundColor Green
 
 # ---------- 写入 rules ----------
 $rulesBlock = @"
+  - RULE-SET,douyin-direct,DIRECT
   - RULE-SET,cn-domain,DIRECT
   - RULE-SET,cn-ipcidr,DIRECT,no-resolve
 "@

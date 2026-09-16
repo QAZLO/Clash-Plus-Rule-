@@ -5,6 +5,7 @@
 ## ✨ 功能特点
 
 - 包含 **9,647 条**中国 IP 段（CIDR）规则
+- **抖音专用直连规则**（解决海外 CDN 问题）
 - 常用国内域名直连规则
 - 使用 **rule-providers** 自动更新规则
 - 安装脚本**不覆盖节点配置**，安全可靠
@@ -32,6 +33,7 @@
 | [uninstall.bat](uninstall.bat) | 卸载恢复脚本 |
 | [INSTALL.md](INSTALL.md) | 详细安装教程 |
 | [snippet-rule-providers.yaml](snippet-rule-providers.yaml) | 手动配置代码片段 |
+| [douyin-direct.yaml](douyin-direct.yaml) | 抖音专用 YAML 直连规则 |
 | [cncidr.txt](cncidr.txt) | 中国 IP 段列表（9,647 条） |
 | [direct-rules.txt](direct-rules.txt) | 国内域名直连规则 |
 | [clash-dns-config.yaml](clash-dns-config.yaml) | DNS 配置模板 |

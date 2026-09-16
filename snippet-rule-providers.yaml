@@ -6,6 +6,14 @@
 
 # ---------- 第一块：粘贴到配置文件顶层 ----------
 rule-providers:
+  douyin-direct:
+    type: http
+    behavior: domain
+    format: yaml
+    url: "https://raw.githubusercontent.com/QAZLO/echo-core/main/douyin-direct.yaml"
+    path: ./ruleset/douyin-direct.yaml
+    interval: 86400
+
   cn-domain:
     type: http
     behavior: domain
@@ -24,6 +32,7 @@ rule-providers:
 
 # ---------- 第二块：放在 rules: 列表最前面 ----------
 rules:
+  - RULE-SET,douyin-direct,DIRECT
   - RULE-SET,cn-domain,DIRECT
   - RULE-SET,cn-ipcidr,DIRECT,no-resolve
   # ↓ 你原有的规则接在这里，不要删
