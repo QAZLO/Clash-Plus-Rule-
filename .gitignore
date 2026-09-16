@@ -1,0 +1,12 @@
+# 记忆文件（私人信息）
+memory/
+MEMORY.md
+
+# 临时文件
+*.tmp
+*.log
+*.bak
+
+# 系统文件
+.DS_Store
+Thumbs.db

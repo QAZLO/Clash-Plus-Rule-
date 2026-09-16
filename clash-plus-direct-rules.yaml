@@ -1,0 +1,19 @@
+# Clash Plus 直连规则配置
+# 来源: https://github.com/Loyalsoldier/clash-rules
+
+# 规则集
+rule-providers:
+  direct:
+    type: http
+    behavior: domain
+    url: "https://cdn.jsdelivr.net/gh/Loyalsoldier/clash-rules@release/direct.txt"
+    path: ./ruleset/direct.yaml
+    interval: 86400
+
+# 规则
+rules:
+  # 使用直连规则集
+  - RULE-SET,direct,DIRECT
+
+  # 最终规则（如果以上都不匹配）
+  - MATCH,DIRECT

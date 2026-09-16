@@ -1,0 +1,31 @@
+# 为 Clash Plus 添加 DNS 配置
+# 解决国内 APP（如抖音）DNS 污染问题
+
+dns:
+  enable: true
+  ipv6: false
+  listen: 0.0.0.0:53
+  enhanced-mode: fake-ip  # 使用 Fake-IP 模式，避免 DNS 污染
+  fake-ip-range: 198.18.0.1/16
+
+  # 国内 DNS 服务器（用于直连域名）
+  nameserver:
+    - 223.5.5.5       # 阿里云 DNS
+    - 119.29.29.29    # 腾讯 DNS
+    - 180.76.76.76    # 百度 DNS
+
+  # 国外 DNS 服务器（用于代理域名，通过代理查询）
+  fallback:
+    - https://1.1.1.1/dns-query     # Cloudflare DoH
+    - https://8.8.8.8/dns-query     # Google DoH
+
+  # 针对国内域名强制使用国内 DNS
+  nameserver-policy:
+    '+.douyin.com': 223.5.5.5
+    '+.bytedance.com': 223.5.5.5
+    '+.amemv.com': 223.5.5.5
+    '+.snssdk.com': 223.5.5.5
+    'geosite:cn': 223.5.5.5
+
+# 将上面的配置合并到你的 Clash Plus 配置文件中
+# 通常在最上方，rules 之前
