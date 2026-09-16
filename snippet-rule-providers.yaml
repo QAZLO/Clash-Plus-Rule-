@@ -1,0 +1,40 @@
+# ============================================
+# Clash Plus 中国直连规则 - 手动粘贴片段
+# ============================================
+# 把下面两块内容合并进你现有的 config.yaml
+# 不要整体替换配置文件，否则会丢失节点！
+
+# ---------- 第一块：粘贴到配置文件顶层 ----------
+rule-providers:
+  cn-domain:
+    type: http
+    behavior: domain
+    format: yaml
+    url: "https://raw.githubusercontent.com/QAZLO/echo-core/main/direct.txt"
+    path: ./ruleset/cn-domain.yaml
+    interval: 86400
+
+  cn-ipcidr:
+    type: http
+    behavior: ipcidr
+    format: yaml
+    url: "https://raw.githubusercontent.com/QAZLO/echo-core/main/cncidr.txt"
+    path: ./ruleset/cn-ipcidr.yaml
+    interval: 86400
+
+# ---------- 第二块：放在 rules: 列表最前面 ----------
+rules:
+  - RULE-SET,cn-domain,DIRECT
+  - RULE-SET,cn-ipcidr,DIRECT,no-resolve
+  # ↓ 你原有的规则接在这里，不要删
+  # - MATCH,PROXY
+
+# ---------- 第三块（可选）：DNS 国内优先 ----------
+dns:
+  enable: true
+  enhanced-mode: fake-ip
+  fake-ip-range: 198.18.0.1/16
+  nameserver:
+    - 223.5.5.5
+    - 119.29.29.29
+    - "tls://1.1.1.1"
